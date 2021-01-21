@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MyFilmweb</title>
+</head>
+<body>
+{% block content %}
+<h1>Lista osób</h1>
+    <ul>
+        {% for person in persons %}
+        <li>{{person.first_name}} {{person.last_name}}
+            <a href= http://127.0.0.1:8000/edit_person/{{person.pk}}> | edit</a>
+        </li>
+        {% endfor %}
+    </ul>
+<p><a href= "http://127.0.0.1:8000/add_person/">
+    <b>Dodaj osobę</b></a></p>
+{% endblock content %}
+</body>
+</html>

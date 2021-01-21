@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MyFilmweb</title>
+</head>
+<body>
+{% block content %}
+<h2><b>{{movie.title}} </b></h2>
+    <ul>
+        <li> Gatunek: <b>{{genres}} </b></li>
+        <li> Rok produkcji: <b>{{movie.year}} </b></li>
+        <li> Reżyser: <b>{{movie.director.first_name}} {{movie.director.last_name}}</b></li>
+        <li> Scenarzysta: <b>{{movie.screenplay.first_name}} {{movie.screenplay.last_name}}</b></li>
+        <li> W roli głównej:
+            {% for actor, role in actors %}
+            <b>{{actor.first_name}} {{actor.last_name}}</b> jako <b>{{role}}</b> |
+            {% endfor %}
+        </li>
+        <li> Ocena: <b>{{movie.rating}} </b></li>
+    </ul>
+{% endblock content %}
+</body>
+</html>
